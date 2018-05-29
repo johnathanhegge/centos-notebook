@@ -15,7 +15,7 @@ https://raw.githubusercontent.com/nimbix/image-common/$GIT_BRANCH/install-nimbix
 ADD NAE/help.html /etc/NAE/help.html
 ADD NAE/AppDef.json /etc/NAE/AppDef.json
 
-ENV NB_BRANCH=testing
+ENV NB_BRANCH=master
 ADD https://raw.githubusercontent.com/nimbix/notebook-common/$NB_BRANCH/install-centos.sh /tmp/install-centos.sh
 RUN bash /tmp/install-centos.sh && rm -f /tmp/install-centos.sh
 
