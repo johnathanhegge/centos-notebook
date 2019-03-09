@@ -19,7 +19,8 @@ RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice
 
 ENV NB_BRANCH=testing
 ADD https://raw.githubusercontent.com/nimbix/notebook-common/$NB_BRANCH/install-centos.sh /tmp/install-centos.sh
-RUN bash /tmp/install-centos.sh && rm -f /tmp/install-centos.sh
+#RUN bash /tmp/install-centos.sh && rm -f /tmp/install-centos.sh
+RUN bash /tmp/install-centos.sh 3 && rm -f /tmp/install-centos.sh
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
