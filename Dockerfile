@@ -6,8 +6,10 @@ ARG SERIAL_NUMBER
 ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20190310.0900}
 
 ENV NB_BRANCH=redir
-ADD https://raw.githubusercontent.com/nimbix/notebook-common/$NB_BRANCH/install-centos.sh /tmp/install-centos.sh
-RUN bash /tmp/install-centos.sh -b $NB_BRANCH && rm -f /tmp/install-centos.sh
+
+ADD https://raw.githubusercontent.com/nimbix/notebook-common/$NB_BRANCH/install-notebook-common /tmp/install-notebook-common
+RUN cat /tmp/install-notebook-common | su - -c 'sed "s|<SHELL>|${SHELL}|"' \
+    | su - -c '${SHELL} -s -- -b '"$NB_BRANCH" && rm /tmp/install-notebook-common
 
 ADD NAE/AppDef.json /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
