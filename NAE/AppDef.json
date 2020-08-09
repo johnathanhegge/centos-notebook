@@ -1,6 +1,6 @@
 {
     "name": "CentOS Notebook",
-    "description": "CentOS Linux with Juptyer Notebook",
+    "description": "CentOS Linux with Jupyter Notebook",
     "author": "Nimbix, Inc.",
     "licensed": true,
     "classifications": [
